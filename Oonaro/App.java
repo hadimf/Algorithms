@@ -1,17 +1,12 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class App {
     public static void main(String[] args) {
         var input = System.console().readLine().split(" ");
-        // var numbers = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
 
-        // var numberSet = new HashSet<>(Arrays.asList(numbers));
         var numberSet = removeDuplicates(input);
         List<Integer> numbersList = new ArrayList<>(numberSet);
 

@@ -23,9 +23,7 @@ public class App3 {
         int first = 0;
         int second = 1;
         int temp;
-        // if (second >= 0) {
-        // System.out.println(first);
-        // }
+
 
         while (second <= end) {
 
@@ -44,9 +42,7 @@ public class App3 {
         int first = 0;
         int second = 1;
         int temp;
-        // if (second >= 0) {
-        // System.out.println(first);
-        // }
+
 
         while (second <= end) {
 

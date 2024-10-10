@@ -16,7 +16,7 @@ public class App2 {
                 numbers.put(number, numbers.get(number) + 1);
             }
         }
-        System.out.println(input / 2);
+        
         for (var items : numbers.entrySet()) {
             if (items.getValue() > (input / 2) ) {
                 System.out.println(items.getKey());

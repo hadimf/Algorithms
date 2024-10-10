@@ -33,11 +33,6 @@ public class App4 {
             System.out.print(number + " , ");
         }
 
-        // for (int i = 0; i < size; i++) {
-        // if (i < shift) {
-
-        // }
-        // }
 
     }
 }
