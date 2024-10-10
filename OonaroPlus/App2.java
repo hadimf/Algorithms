@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class App2 {
@@ -14,6 +15,9 @@ public class App2 {
             var input1 = System.console().readLine().split("");
             var input2 = System.console().readLine().split("");
             var input3 = System.console().readLine().split("");
+            input1 = Arrays.stream(input1).map(item -> item.toLowerCase()).toArray(String[]::new);
+            input2 = Arrays.stream(input2).map(item -> item.toLowerCase()).toArray(String[]::new);
+            input3 = Arrays.stream(input3).map(item -> item.toLowerCase()).toArray(String[]::new);
             String[][] inputs = { input1, input2, input3 };
 
             hasWinner = checkOfoghi(inputs, total);
@@ -33,10 +37,10 @@ public class App2 {
         System.out.println("O: " + total.get("o"));
         if (total.get("x") > total.get("o")) {
             System.out.println("Champ: X");
-        }else if (total.get("x") < total.get("o")) {
+        } else if (total.get("x") < total.get("o")) {
             System.out.println("Champ: O");
-            
-        }else{
+
+        } else {
             System.out.println("N");
         }
 
@@ -98,12 +102,14 @@ public class App2 {
     }
 
     public static boolean checkOrib(String[][] inputs, HashMap<String, Integer> total) {
-        if (inputs[0][0].equals(inputs[1][1]) && inputs[1][1].equals(inputs[2][2]) && inputs[0][0].equals("x")) {
+        if (inputs[0][0].equals(inputs[1][1]) && inputs[1][1].equals(inputs[2][2]) && inputs[0][0].equals("x") ||
+                inputs[0][2].equals(inputs[1][1]) && inputs[1][1].equals(inputs[2][2]) && inputs[2][0].equals("x")) {
             // System.out.println("x win");
             total.put("x", total.get("x") + 1);
             return true;
 
-        } else if (inputs[0][2].equals(inputs[1][1]) && inputs[1][1].equals(inputs[2][2]) && inputs[2][0].equals("o")) {
+        } else if (inputs[0][0].equals(inputs[1][1]) && inputs[1][1].equals(inputs[2][2]) && inputs[0][0].equals("o") ||
+                inputs[0][2].equals(inputs[1][1]) && inputs[1][1].equals(inputs[2][2]) && inputs[2][0].equals("o")) {
             // System.out.println("o win");
             total.put("o", total.get("o") + 1);
             return true;
