@@ -1,36 +1,43 @@
+
+import java.util.ArrayList;
+
 public class App3 {
     public static void main(String[] args) {
-        var input = Integer.parseInt(System.console().readLine());
+        String input;
+        var numbers = new ArrayList<String>();
+        while (true) {
+            input = System.console().readLine();
+            if (input.equals("0")) {
+                break;
+            }
+            numbers.add(reverse(input));
 
-        for (int i = 1; i <= input; i += 2) {
-            show2(i, input);
         }
-        for (int j = input - 2; j >= 1; j -= 2) {
-            show2(j, input);
+
+        for (String number : numbers) {
+            System.out.println((number));
+            showNumbers(number);
         }
 
     }
 
-    public static void show2(int size, int input) {
-        for (int i = 0; i < (input - size) / 2; i++) {
-            System.out.print(" ");
-        }
-        for (int i = 0; i < size; i++) {
-            System.out.print("*");
-        }
-        for (int i = 0; i < (input - size) / 2; i++) {
-            System.out.print(" ");
-        }
-        for (int i = 0; i < (input - size) / 2; i++) {
-            System.out.print(" ");
-        }
-        for (int i = 0; i < size; i++) {
-            System.out.print("*");
-        }
-        for (int i = 0; i < (input - size) / 2; i++) {
-            System.out.print(" ");
-        }
+    public static String reverse(String input) {
+        String reverseString = "";
 
-        System.out.println();
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reverseString += input.charAt(i);
+        }
+        return reverseString;
     }
+
+    public static void showNumbers(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            var index = input.charAt(i);
+            for (int j = 0; j < Integer.parseInt(String.valueOf(index)); j++) {
+                System.out.print(input.charAt(i));
+            }
+            System.out.println();
+        }
+    }
+
 }

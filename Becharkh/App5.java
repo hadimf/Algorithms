@@ -1,32 +1,30 @@
-
-import java.lang.reflect.Array;
-
 public class App5 {
     public static void main(String[] args) {
-        var input = System.console().readLine().split(" ");
-        int first = 0;
-        int second = 0;
-
-        if (Integer.parseInt(input[0]) > Integer.parseInt(input[1])) {
-            first = Integer.parseInt(input[1]);
-            second = Integer.parseInt(input[0]);
-        } else {
-            first = Integer.parseInt(input[0]);
-            second = Integer.parseInt(input[1]);
-        }
-
-        showPrimary(first, second);
-        System.out.println();
-        fibo(first, second);
-
+        var input = Integer.parseInt(System.console().readLine());
+        findPrimaryNumber(input);
     }
 
-    public static void showPrimary(int first, int second) {
-        for (int i = first + 1; i < second; i++) {
+    public static void findPrimaryNumber(int input) {
+        int count = 0;
+        var isExist = false;
+        if (input % 2 == 0) {
+            input = input - 1;
+        }
+        for (int i = input; i > 2; i = i - 2) {
             if (primary(i) != -1) {
-
-                System.out.print(i + " ");
+                count++;
+            } else {
+                count = 0;
             }
+            if (count == 2) {
+                System.out.println(i + " " + (i + 2));
+                isExist = true;
+                break;
+            }
+        }
+        if (!isExist) {
+
+            System.out.println(-1 + " " + -1);
         }
     }
 
@@ -42,23 +40,5 @@ public class App5 {
         } else {
             return -1;
         }
-    }
-
-    public static void fibo(int start, int last) {
-        var first = 0;
-        var second = 1;
-        int temp;
-
-        while (second < last) {
-
-            temp = first;
-            first = second;
-            second = temp + first;
-            if (second < last && second >= start) {
-
-                System.out.print(second + " ");
-            }
-        }
-
     }
 }
