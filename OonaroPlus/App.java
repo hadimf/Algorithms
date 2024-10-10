@@ -9,17 +9,27 @@ public class App {
             numbers[i] = Integer.parseInt(input[i]);
         }
         int count = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (i % 2 != numbers[i] % 2) {
-                count++;
-            }
-        }
+        int odd = 0;
+        int even = 0;
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] < 0) {
                 hasNegative = true;
                 break;
+            } else if (i % 2 != numbers[i] % 2) {
+                if (numbers[i] % 2 == 0) {
+                    odd++;
+                } else {
+                    even++;
+                }
+                count++;
             }
         }
+        // for (int i = 0; i < numbers.length; i++) {
+        // if (numbers[i] < 0) {
+        // hasNegative = true;
+        // break;
+        // }
+        // }
         if (hasNegative) {
             System.out.println(-1);
         } else {
@@ -30,11 +40,15 @@ public class App {
                 } else {
                     System.out.println(-1);
                 }
-            }
-            if (count % 2 == 0) {
-                System.out.println(count / 2);
+            } else if (even == odd) {
+                if (count % 2 == 0) {
+                    System.out.println(count / 2);
+                } else {
+                    System.out.println(-1);
+                }
             } else {
                 System.out.println(-1);
+
             }
         }
     }
