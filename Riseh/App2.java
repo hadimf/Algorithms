@@ -39,14 +39,14 @@ public class App2 {
             }
         }
 
-        var tempStations = new HashMap<>(stations); // کپی از stations
+        var tempStations = new HashMap<>(stations);
         for (var set : tempStations.entrySet()) {
-            // پیمایش فقط بر روی فاصله‌های مربوط به ایستگاه جاری
+
             for (var distance : set.getValue()) {
                 var value = new ArrayList<int[]>();
-        
+
                 if (calDistance(start, distance) == shortestDistance) {
-                    // دریافت ایستگاه‌های نزدیک و اضافه کردن مقدار جدید
+
                     value = nearest_stations.getOrDefault(set.getKey(), new ArrayList<int[]>());
                     value.add(distance);
                     nearest_stations.put(set.getKey(), value);
@@ -56,7 +56,7 @@ public class App2 {
 
         System.out.println("The nearest station(s) to you:");
         sortbykey(nearest_stations);
-        System.out.println("about " + ((int)shortestDistance) + " meters away from you");
+        System.out.println("about " + ((int) shortestDistance) + " meters away from you");
 
     }
 
@@ -70,7 +70,6 @@ public class App2 {
 
         Collections.sort(sortedKeys);
 
-        // Display the TreeMap which is naturally sorted
         for (var sets : map.entrySet()) {
             System.out.print(sets.getKey() + " ");
             for (var value : sets.getValue()) {
