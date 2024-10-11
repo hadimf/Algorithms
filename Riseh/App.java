@@ -13,12 +13,12 @@ public class App {
         var size = pattern.length();
         int c = 0;
         var str = "";
+        hasMatch = false;
         for (int k = 0; k < lineNumber; k++) {
             var input = System.console().readLine();
-            hasMatch = false;
 
+            // check Word
             for (int i = 0; i < input.length(); i++) {
-                index = i;
                 for (int j = i; j < input.length(); j++) {
                     c++;
                     str += input.charAt(j);
@@ -31,33 +31,75 @@ public class App {
                             lines.put(k, values);
                             hasMatch = true;
 
-                            // System.out.println("word" + (i + 1));
-                        } else if (checkReverse(pattern, str)) {
-                            var values = lines.getOrDefault(k, new ArrayList<String>());
-                            values.add(String.valueOf((i + 1)));
-                            lines.put(k, values);
-                            hasMatch = true;
-                            // System.out.println("wordReverse" + (i + 1));
+                        }
+                        c = 0;
+                        str = "";
+                        break;
+                    }
+                }
+            }
 
-                        } else if (checkUpper(pattern, str)) {
-                            var values = lines.getOrDefault(k, new ArrayList<String>());
-                            values.add(String.valueOf((i + 1)));
-                            lines.put(k, values);
-                            hasMatch = true;
-                            // System.out.println("wordUpper" + (i + 1));
+            // check Upper
+            for (int i = 0; i < input.length(); i++) {
+                for (int j = i; j < input.length(); j++) {
+                    c++;
+                    str += input.charAt(j);
 
-                        } else if (checkReverseUpper(pattern, str)) {
+                    if (c == size) {
+                        if (checkUpper(pattern, str)) {
+
                             var values = lines.getOrDefault(k, new ArrayList<String>());
                             values.add(String.valueOf((i + 1)));
                             lines.put(k, values);
                             hasMatch = true;
-                            // System.out.println("wordReverseUpper" + (i + 1));
 
                         }
                         c = 0;
                         str = "";
                         break;
+                    }
+                }
+            }
+            // check Reverse
+            for (int i = 0; i < input.length(); i++) {
+                for (int j = i; j < input.length(); j++) {
+                    c++;
+                    str += input.charAt(j);
 
+                    if (c == size) {
+                        if (checkReverse(pattern, str)) {
+
+                            var values = lines.getOrDefault(k, new ArrayList<String>());
+                            values.add(String.valueOf((i + 1)));
+                            lines.put(k, values);
+                            hasMatch = true;
+
+                        }
+                        c = 0;
+                        str = "";
+                        break;
+                    }
+                }
+            }
+
+            // check Reverse Upper
+            for (int i = 0; i < input.length(); i++) {
+                for (int j = i; j < input.length(); j++) {
+                    c++;
+                    str += input.charAt(j);
+
+                    if (c == size) {
+                        if (checkReverseUpper(pattern, str)) {
+
+                            var values = lines.getOrDefault(k, new ArrayList<String>());
+                            values.add(String.valueOf((i + 1)));
+                            lines.put(k, values);
+                            hasMatch = true;
+
+                        }
+                        c = 0;
+                        str = "";
+                        break;
                     }
                 }
             }
@@ -66,6 +108,56 @@ public class App {
                 list.add("Substring not found");
                 lines.put(k, list);
             }
+
+            // for (int i = 0; i < input.length(); i++) {
+            // index = i;
+            // for (int j = i; j < input.length(); j++) {
+            // c++;
+            // str += input.charAt(j);
+
+            // if (c == size) {
+            // if (checkWord(pattern, str)) {
+
+            // var values = lines.getOrDefault(k, new ArrayList<String>());
+            // values.add(String.valueOf((i + 1)));
+            // lines.put(k, values);
+            // hasMatch = true;
+
+            // // System.out.println("word" + (i + 1));
+            // } else if (checkReverse(pattern, str)) {
+            // var values = lines.getOrDefault(k, new ArrayList<String>());
+            // values.add(String.valueOf((i + 1)));
+            // lines.put(k, values);
+            // hasMatch = true;
+            // // System.out.println("wordReverse" + (i + 1));
+
+            // } else if (checkUpper(pattern, str)) {
+            // var values = lines.getOrDefault(k, new ArrayList<String>());
+            // values.add(String.valueOf((i + 1)));
+            // lines.put(k, values);
+            // hasMatch = true;
+            // // System.out.println("wordUpper" + (i + 1));
+
+            // } else if (checkReverseUpper(pattern, str)) {
+            // var values = lines.getOrDefault(k, new ArrayList<String>());
+            // values.add(String.valueOf((i + 1)));
+            // lines.put(k, values);
+            // hasMatch = true;
+            // // System.out.println("wordReverseUpper" + (i + 1));
+
+            // }
+            // c = 0;
+            // str = "";
+            // break;
+
+            // }
+            // }
+            // }
+            // if (!hasMatch) {
+            // var list = new ArrayList<String>();
+            // list.add("Substring not found");
+            // lines.put(k, list);
+            // }
         }
 
         for (var line : lines.entrySet()) {
