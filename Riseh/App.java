@@ -13,8 +13,8 @@ public class App {
         var size = pattern.length();
         int c = 0;
         var str = "";
-        hasMatch = false;
         for (int k = 0; k < lineNumber; k++) {
+            hasMatch = false;
             var input = System.console().readLine();
 
             // check Word
@@ -26,9 +26,9 @@ public class App {
                     if (c == size) {
                         if (checkWord(pattern, str)) {
 
-                            var values = lines.getOrDefault(k, new ArrayList<String>());
+                            var values = lines.getOrDefault((k+1), new ArrayList<String>());
                             values.add(String.valueOf((i + 1)));
-                            lines.put(k, values);
+                            lines.put((k+1), values);
                             hasMatch = true;
 
                         }
@@ -48,9 +48,9 @@ public class App {
                     if (c == size) {
                         if (checkUpper(pattern, str)) {
 
-                            var values = lines.getOrDefault(k, new ArrayList<String>());
+                            var values = lines.getOrDefault((k+1), new ArrayList<String>());
                             values.add(String.valueOf((i + 1)));
-                            lines.put(k, values);
+                            lines.put((k+1), values);
                             hasMatch = true;
 
                         }
@@ -69,9 +69,9 @@ public class App {
                     if (c == size) {
                         if (checkReverse(pattern, str)) {
 
-                            var values = lines.getOrDefault(k, new ArrayList<String>());
+                            var values = lines.getOrDefault((k+1), new ArrayList<String>());
                             values.add(String.valueOf((i + 1)));
-                            lines.put(k, values);
+                            lines.put((k+1), values);
                             hasMatch = true;
 
                         }
@@ -91,9 +91,9 @@ public class App {
                     if (c == size) {
                         if (checkReverseUpper(pattern, str)) {
 
-                            var values = lines.getOrDefault(k, new ArrayList<String>());
+                            var values = lines.getOrDefault((k+1), new ArrayList<String>());
                             values.add(String.valueOf((i + 1)));
-                            lines.put(k, values);
+                            lines.put((k+1), values);
                             hasMatch = true;
 
                         }
@@ -106,7 +106,7 @@ public class App {
             if (!hasMatch) {
                 var list = new ArrayList<String>();
                 list.add("Substring not found");
-                lines.put(k, list);
+                lines.put((k+1), list);
             }
 
             // for (int i = 0; i < input.length(); i++) {
@@ -163,8 +163,11 @@ public class App {
         for (var line : lines.entrySet()) {
 
             // Printing all elements of a Map
-            System.out.println(line.getKey() + " = "
-                    + line.getValue());
+            // System.out.println(line.getKey() + " = "
+            //         + line.getValue());
+                    for (var ln : line.getValue()) {
+                        System.out.println(line.getKey() + "  " + ln);
+                    }
         }
     }
 
