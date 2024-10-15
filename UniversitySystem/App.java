@@ -170,8 +170,11 @@ public class App {
                     break;
 
                 case 4:
+                    clearScreen();
+                    
                     System.out.println("1.Show All Terms");
                     System.out.println("2.Show All Courses");
+                    System.out.println("3.Show Count Courses and Show Count Units");
                     var inputShow = Integer.parseInt(System.console().readLine());
                     switch (inputShow) {
                         case 1:
@@ -179,6 +182,9 @@ public class App {
                             break;
                         case 2:
                             Term.showCourses();
+                            break;
+                        case 3:
+                            Term.showDetailsCourseByYear_HalfYear();
                             break;
 
                         default:

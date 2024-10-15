@@ -79,15 +79,29 @@ public class Term {
         }
     }
 
-    public void showDetailsCourseByYear_HalfYear(int yearTerm, int halfYearTerm) {
+    public static void showDetailsCourseByYear_HalfYear() {
+        System.out.println("Enter Year Of Term:");
+        var yearTerm = Integer.parseInt(System.console().readLine());
+        System.out.println("Enter Half Year Of Term:");
+        var halfYearTerm = Integer.parseInt(System.console().readLine());
+        var existTerm = false;
         var countCourse = 0;
         var countUnit = 0;
         for (var term : existTermsList) {
-            for (var course : term.getCoursesTermList()) {
-                countCourse++;
-                countUnit += course.getUnit();
+            if (term.yearTerm == yearTerm && term.halfYearTerm == halfYearTerm) {
+                existTerm = true;
+                for (var course : term.getCoursesTermList()) {
+                    countCourse++;
+                    countUnit += course.getUnit();
+                }
             }
 
+        }
+        if (existTerm) {
+
+            System.out.println("Count Course: " + countCourse + ",  Count Unit:  " + countUnit);
+        } else {
+            System.out.println("There is no Term");
         }
     }
 
