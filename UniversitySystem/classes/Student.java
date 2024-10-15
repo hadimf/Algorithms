@@ -74,6 +74,16 @@ public class Student {
         return sum;
     }
 
+    public int calSumUnitsInOneTermByYear_HalfYear(int yearTerm, int halfYearTerm) {
+        int sum = 0;
+        for (var course : coursesTaken) {
+            if (course.getTerm().getYearTerm() == yearTerm && course.getTerm().getHalfYearTerm() == halfYearTerm) {
+                sum += course.getUnit();
+            }
+        }
+        return sum;
+    }
+
     public void calSumUnits() {
         var sum = 0;
         for (var course : coursesTaken) {
@@ -84,7 +94,7 @@ public class Student {
     }
 
     public void addCourse(int yearTerm, int halfYearTerm, int id) {
-        var sum = calSumUnitsInOneTerm();
+        var sum = calSumUnitsInOneTermByYear_HalfYear(yearTerm, halfYearTerm);
         var course = Term.getCourseByYear_HalfYear_Id(yearTerm, halfYearTerm, id);
         if (!checkOverlapClasses(course)) {
             sum += course.getUnit();

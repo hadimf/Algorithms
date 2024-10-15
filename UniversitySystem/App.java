@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) {
         while (true) {
-            // clearScreen();
+
             System.out.println("Welcome to University System");
             //
             System.out.println("1.Manage Term");
@@ -168,7 +168,7 @@ public class App {
                     }
                     break;
                 default:
-                    throw new AssertionError();
+                    System.exit(1);
             }
 
         }
