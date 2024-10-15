@@ -25,6 +25,18 @@ public class Term {
         return exist;
     }
 
+    public static void showCourses() {
+        if (existTermsList.isEmpty()) {
+            System.out.println("There is no Term Exist");
+        } else {
+            for (var term : existTermsList) {
+                for (var course : term.coursesTermList) {
+                    course.showData();
+                }
+            }
+        }
+    }
+
     public static void showCoursesByYear_HalfYear(int yearTerm, int halfYearTerm) {
         if (existTermsList.isEmpty()) {
             System.out.println("There is no Term Exist");

@@ -14,6 +14,7 @@ public class App {
             System.out.println("1.Manage Term");
             System.out.println("2.Create Student");
             System.out.println("3.Login Student");
+            System.out.println("4.Show Details");
             System.out.print("input : ");
             var input = Integer.parseInt(System.console().readLine());
 
@@ -167,6 +168,25 @@ public class App {
                             break;
                     }
                     break;
+
+                case 4:
+                    System.out.println("1.Show All Terms");
+                    System.out.println("2.Show All Courses");
+                    var inputShow = Integer.parseInt(System.console().readLine());
+                    switch (inputShow) {
+                        case 1:
+                            Term.showExistTerms();
+                            break;
+                        case 2:
+                            Term.showCourses();
+                            break;
+
+                        default:
+                            System.exit(1);
+                            break;
+                    }
+                    break;
+
                 default:
                     System.exit(1);
             }
