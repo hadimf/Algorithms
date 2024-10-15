@@ -24,8 +24,8 @@ public class Course {
     }
 
     public void showData() {
-        System.out.println("Course Name: " + this.courseName + " Unit: " + this.unit + " In Day: " + this.day + "At : "
-                + this.startTime.toString());
+        System.out.println("Course Name: " + this.courseName + " Unit: " + this.unit + " In Day: " + this.day + " At : "
+                + this.startTime.toString() + " Duration: " + this.duration);
     }
 
     public void setTerm(Term term) {
@@ -51,6 +51,7 @@ public class Course {
     public LocalTime getStartTime() {
         return startTime;
     }
+
     public LocalTime getEnd() {
         return startTime.plusMinutes(duration);
     }

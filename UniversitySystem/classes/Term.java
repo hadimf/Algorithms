@@ -15,18 +15,33 @@ public class Term {
         this.halfYearTerm = halfYearTerm;
     }
 
+    private static boolean checkExistTerm(int yearTerm, int halfYearTerm) {
+        var exist = false;
+        for (var term : existTermsList) {
+            if (term.getYearTerm() == yearTerm && term.getHalfYearTerm() == halfYearTerm) {
+                exist = true;
+            }
+        }
+        return exist;
+    }
+
     public static void showCoursesByYear_HalfYear(int yearTerm, int halfYearTerm) {
         if (existTermsList.isEmpty()) {
             System.out.println("There is no Term Exist");
         }
-        for (var term : existTermsList) {
-            if (term.yearTerm == yearTerm && term.halfYearTerm == halfYearTerm) {
-                for (int i = 1; i <= term.coursesTermList.size(); i++) {
-                    System.out.print(i + " ");
-                    term.coursesTermList.get((i - 1)).showData();
-                }
+        if (checkExistTerm(yearTerm, halfYearTerm)) {
 
+            for (var term : existTermsList) {
+                if (term.yearTerm == yearTerm && term.halfYearTerm == halfYearTerm) {
+                    for (int i = 1; i <= term.coursesTermList.size(); i++) {
+                        System.out.print(i + " ");
+                        term.coursesTermList.get((i - 1)).showData();
+                    }
+
+                }
             }
+        } else {
+            System.out.println("There is no Term Exist");
         }
     }
 
