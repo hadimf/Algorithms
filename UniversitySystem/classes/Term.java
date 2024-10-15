@@ -52,6 +52,18 @@ public class Term {
         }
     }
 
+    public void showDetailsCourseByYear_HalfYear(int yearTerm, int halfYearTerm) {
+        var countCourse = 0;
+        var countUnit = 0;
+        for (var term : existTermsList) {
+            for (var course : term.getCoursesTermList()) {
+                countCourse++;
+                countUnit += course.getUnit();
+            }
+
+        }
+    }
+
     public static void addExistTerm(Term term) {
         existTermsList.add(term);
     }
