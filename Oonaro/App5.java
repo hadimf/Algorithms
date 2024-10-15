@@ -29,6 +29,8 @@ public class App5 {
             }
 
         }
+
+        System.out.println("----------");
         int sum = 0;
         for (int i = 0; i < satr1; i++) {
             for (int j = 0; j < satr2; j++) {
