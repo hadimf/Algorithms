@@ -64,13 +64,19 @@ public class Student {
         var year = Integer.parseInt(System.console().readLine());
         System.out.println("Enter Your Half of year of Term ");
         var halfYear = Integer.parseInt(System.console().readLine());
+        var hasExist = false;
         int sum = 0;
         for (var course : coursesTaken) {
             if (course.getTerm().getYearTerm() == year && course.getTerm().getHalfYearTerm() == halfYear) {
                 sum += course.getUnit();
+                hasExist = true;
             }
         }
-        System.out.println("Sum units of Year of " + year + " in " + halfYear + "  half Year is : " + sum);
+        if (hasExist) {
+            System.out.println("Sum units of Year of " + year + " in " + halfYear + "  half Year is : " + sum);
+        }else{
+            System.out.println("There is no Term");
+        }
         return sum;
     }
 

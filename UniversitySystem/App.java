@@ -140,7 +140,9 @@ public class App {
                         case 1:
                             clearScreen();
                             var sumUnits = student.calSumUnitsInOneTerm();
-                            System.out.println("All units in one term " + sumUnits);
+                            if (sumUnits > 0) {
+                                System.out.println("All units in one term " + sumUnits);
+                            }
                             break;
                         case 2:
                             clearScreen();
@@ -171,7 +173,7 @@ public class App {
 
                 case 4:
                     clearScreen();
-                    
+
                     System.out.println("1.Show All Terms");
                     System.out.println("2.Show All Courses");
                     System.out.println("3.Show Count Courses and Show Count Units");
